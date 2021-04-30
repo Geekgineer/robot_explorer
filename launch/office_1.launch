@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="use_sim_time"  value="true"/>
+    <arg name="map" value="office_1" />
+
+    <!-- search: your solution to the search task -->
+    <node name="search" pkg="robot_explorer" type="search" output="screen" />
+
+    <!-- target check: checks if the robot found the target -->
+    <!-- To test for quick check place the object near the start point at -14 and -5 in the map -->
+    <!-- <node name="target_check" pkg ="robot_explorer" type="target_check" output="screen" args="-14 -5"/> -->
+    <node name="target_check" pkg ="robot_explorer" type="target_check" output="screen" args="8 15"/>
+    <!-- stage: the simulator -->
+    <node name="stage" pkg="stage_ros" type="stageros" args="$(find robot_explorer)/world/office_1.world"/>
+
+    <!-- map server: provides the map -->
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find robot_explorer)/world/$(arg map).yaml"/>
+
+    <!-- amcl: localizes the robot in the map -->
+    <node pkg="amcl" type="amcl" name="amcl">
+        <param name="first_map_only" value="true" />
+        <param name="use_map_topic" value="true" />
+        <remap from="scan" to="base_scan" />
+
+        <param name="odom_frame_id" value="odom" />
+        <param name="base_frame_id" value="base_link" />
+        <param name="initial_pose_x" value="0"/>
+        <param name="initial_pose_y" value="0"/>
+    </node>
+
+    <!-- move base: moves the robot -->
+    <node pkg="move_base" type="move_base" name="move_base">
+        <rosparam file="$(find robot_explorer)/config/common_costmap.yaml" command="load" ns="local_costmap"/>
+        <rosparam file="$(find robot_explorer)/config/common_costmap.yaml" command="load" ns="global_costmap"/>
+        <rosparam file="$(find robot_explorer)/config/navigation.yaml"     command="load"/>
+        <rosparam file="$(find robot_explorer)/config/local_costmap.yaml"  command="load"/>
+        <rosparam file="$(find robot_explorer)/config/global_costmap.yaml" command="load"/>
+    </node>
+</launch>

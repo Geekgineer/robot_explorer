@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find robot_explorer)/launch/office_1.launch" />
+    <include file="$(find robot_explorer)/launch/rviz_office_1.launch" />
+</launch>
