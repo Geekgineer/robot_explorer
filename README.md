@@ -39,4 +39,5 @@ Modify [office_1.launch](launch/office_1.launch):
 ```
 #### Demo
 
-[!Robot Explorer in Action](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE "Video Title")
+[![Robot Explorer in Action](http://img.youtube.com/vi/Epou_Fu7H-o/0.jpg)](http://www.youtube.com/watch?v=Epou_Fu7H-o "Robot Explore - Finding Hidden Object - RViz and Stage ROS Simulator")
+
