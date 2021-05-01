@@ -1,4 +1,4 @@
-# robot explorer
+# Robot Explorer
 
 ROS c++ package for erratic robot in stage simulator explorer a given map to find a hidden object. 
 
@@ -37,7 +37,7 @@ Modify [office_1.launch](launch/office_1.launch):
     <node name="target_check" pkg ="robot_explorer" type="target_check" output="screen" args="-14 -5"/>
     <!-- <node name="target_check" pkg ="robot_explorer" type="target_check" output="screen" args="8 15"/> -->
 ```
-#### Demo
+#### Demo Video
 
-[![Robot Explorer in Action](http://img.youtube.com/vi/Epou_Fu7H-o/0.jpg)](http://www.youtube.com/watch?v=Epou_Fu7H-o "Robot Explore - Finding Hidden Object - RViz and Stage ROS Simulator")
+[![Robot Explorer in Action](http://img.youtube.com/vi/AskgJKzURu4/0.jpg)](http://www.youtube.com/watch?v=AskgJKzURu4 "Robot Explore - Finding Hidden Object - RViz and Stage ROS Simulator")
 
